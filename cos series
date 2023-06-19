@@ -1,0 +1,32 @@
+#include <stdio.h>
+#include <math.h>
+
+double calculateCosine(double angle, int terms) {
+    double radian = angle * (M_PI / 180); // Convert angle to radians
+    double cosine = 0.0;
+    int i;
+
+    for (i = 0; i < terms; i++) {
+        double term = pow(-1, i) * pow(radian, 2 * i) / tgamma(2 * i + 1);
+        cosine += term;
+    }
+
+    return cosine;
+}
+
+int main() {
+    double angle;
+    int terms;
+
+    printf("Enter the angle in degrees: ");
+    scanf("%lf", &angle);
+
+    printf("Enter the number of terms in the series: ");
+    scanf("%d", &terms);
+
+    double result = calculateCosine(angle, terms);
+
+    printf("The cosine of %.2lf degrees is %.4lf\n", angle, result);
+
+    return 0;
+}

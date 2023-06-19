@@ -1,0 +1,32 @@
+#include <stdio.h>
+#include <math.h>
+
+double calculateSine(double angle, int terms) {
+    double radian = angle * (M_PI / 180); // Convert angle to radians
+    double sine = 0.0;
+    int i;
+
+    for (i = 0; i < terms; i++) {
+        double term = pow(-1, i) * pow(radian, 2 * i + 1) / tgamma(2 * i + 2);
+        sine += term;
+    }
+
+    return sine;
+}
+
+int main() {
+    double angle;
+    int terms;
+
+    printf("Enter the angle in degrees: ");
+    scanf("%lf", &angle);
+
+    printf("Enter the number of terms in the series: ");
+    scanf("%d", &terms);
+
+    double result = calculateSine(angle, terms);
+
+    printf("The sine of %.2lf degrees is %.4lf\n", angle, result);
+
+    return 0;
+}

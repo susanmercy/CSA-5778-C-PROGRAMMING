@@ -1,0 +1,31 @@
+#include <stdio.h>
+#include <math.h>
+
+double calculateExponential(double x, int terms) {
+    double result = 1.0;
+    int i;
+
+    for (i = 1; i <= terms; i++) {
+        double term = pow(x, i) / tgamma(i + 1);
+        result += term;
+    }
+
+    return result;
+}
+
+int main() {
+    double x;
+    int terms;
+
+    printf("Enter the value of x: ");
+    scanf("%lf", &x);
+
+    printf("Enter the number of terms in the series: ");
+    scanf("%d", &terms);
+
+    double result = calculateExponential(x, terms);
+
+    printf("The exponential of %.2lf is %.4lf\n", x, result);
+
+    return 0;
+}

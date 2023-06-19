@@ -1,0 +1,20 @@
+#include <stdio.h>
+
+int main() {
+    int n;
+    double product = 1.0;
+
+    printf("Enter the number of elements in the series: ");
+    scanf("%d", &n);
+
+    for (int i = 1; i <= n; i++) {
+        double element;
+        printf("Enter element %d: ", i);
+        scanf("%lf", &element);
+        product *= element;
+    }
+
+    printf("The product of the series is %lf\n", product);
+
+    return 0;
+}
